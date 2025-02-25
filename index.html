@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Squircle Simulator - Create and Customize Squircles</title>
+  <meta name="description"
+    content="Squircle Simulator allows you to create and customize squircles with various options like size, color, opacity, shadow, and more. Save your creations as images.">
+  <meta name="keywords" content="squircle, simulator, customize, create, favicon, SEO">
+  <meta name="author" content="DevTestudinidae">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Squircle Simulator",
+    "url": "https://yourwebsite.com",
+    "description": "Squircle Simulator allows you to create and customize squircles with various options like size, color, opacity, shadow, and more. Save your creations as images."
+  }
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1>Squircle Simulator</h1>
+  </header>
+  <main>
+    <section class="simulation-area">
+      <div class="squircle-container">
+        <div id="squircle"></div>
+      </div>
+      <div class="color-picker">
+        <label for="color"></label>
+        <input type="color" id="color" name="color" value="#939193">
+      </div>
+    </section>
+    <section class="controls">
+      <div class="control-group">
+        <label for="size">Size (px):</label>
+        <input type="range" id="size" name="size" min="50" max="300" value="150">
+        <input type="number" id="sizeValue" name="sizeValue" min="50" max="300" value="150">
+      </div>
+
+      <div class="control-group">
+        <label for="opacity">Opacity (%):</label>
+        <input type="range" id="opacity" name="opacity" min="0" max="1" step="0.01" value="1">
+        <input type="number" id="opacityValue" name="opacityValue" min="0" max="1" step="0.01" value="1">
+      </div>
+
+      <div class="control-group">
+        <label for="shadow">Shadow (px):</label>
+        <input type="range" id="shadow" name="shadow" min="0" max="50" value="10">
+        <input type="number" id="shadowValue" name="shadowValue" min="0" max="50" value="10">
+      </div>
+
+      <div class="control-group">
+        <label for="shadowAngle">Shadow Angle (°):</label>
+        <input type="range" id="shadowAngle" name="shadowAngle" min="0" max="360" value="45">
+        <input type="number" id="shadowAngleValue" name="shadowAngleValue" min="0" max="360" value="45">
+      </div>
+
+      <div class="control-group">
+        <label for="shadowDepth">Shadow Depth (px):</label>
+        <input type="range" id="shadowDepth" name="shadowDepth" min="0" max="50" value="10">
+        <input type="number" id="shadowDepthValue" name="shadowDepthValue" min="0" max="50" value="10">
+      </div>
+
+      <div class="control-group">
+        <label for="shadowOpacity">Shadow Opacity (%):</label>
+        <input type="range" id="shadowOpacity" name="shadowOpacity" min="0" max="1" step="0.01" value="0.5">
+        <input type="number" id="shadowOpacityValue" name="shadowOpacityValue" min="0" max="1" step="0.01" value="0.5">
+      </div>
+
+      <div class="control-group">
+        <label for="imageUpload">Upload Image:</label>
+        <input type="file" id="imageUpload" name="imageUpload" accept="image/*" style="display: none;">
+        <div id="thumbnailPreview" class="thumbnail-preview">
+          <span>Upload Image</span>
+        </div>
+      </div>
+
+      <div id="imageControls" style="display: none;">
+        <div class="control-group">
+          <label for="imageX">Image X Position (px):</label>
+          <input type="range" id="imageX" name="imageX" min="-150" max="150" value="0">
+          <input type="number" id="imageXValue" name="imageXValue" min="-150" max="150" value="0">
+        </div>
+
+        <div class="control-group">
+          <label for="imageY">Image Y Position (px):</label>
+          <input type="range" id="imageY" name="imageY" min="-150" max="150" value="0">
+          <input type="number" id="imageYValue" name="imageYValue" min="-150" max="150" value="0">
+        </div>
+
+        <div class="control-group">
+          <label for="imageScale">Image Scale (%):</label>
+          <input type="range" id="imageScale" name="imageScale" min="50" max="200" value="100">
+          <input type="number" id="imageScaleValue" name="imageScaleValue" min="50" max="200" value="100">
+        </div>
+      </div>
+
+      <button id="resetButton">Reset</button>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+</html>

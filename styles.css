@@ -1,0 +1,222 @@
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+header {
+	text-align: center;
+	margin-bottom: 20px;
+	max-width: 720px;
+	width: 100%;
+}
+
+header h1 {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.simulation-area {
+	width: 100%;
+	max-width: 720px;
+	height: 400px;
+	background: linear-gradient(90deg, #e0e0e0 1px, transparent 1px), linear-gradient(180deg, #e0e0e0 1px, transparent 1px);
+	background-size: 20px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	position: relative;
+	padding: 10px;
+	box-sizing: border-box;
+}
+
+.squircle-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#squircle {
+	width: 150px;
+	height: 150px;
+	background: linear-gradient(135deg, #939193, #b3b3b3);
+	border-radius: 30%;
+	opacity: 1;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease;
+	position: relative;
+	overflow: hidden;
+}
+
+#squircle:hover {
+	cursor: pointer;
+}
+
+#squircle img {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transform-origin: center;
+}
+
+.color-picker {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background: rgba(255, 255, 255, 0.8);
+	padding: 5px;
+	border-radius: 2px;
+	box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 10px;
+	width: 100%;
+	max-width: 720px;
+}
+
+.control-group {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.controls label {
+	font-weight: 600;
+	font-size: 16px;
+}
+
+.controls input[type="range"],
+.controls input[type="number"],
+.controls input[type="color"],
+.controls input[type="file"] {
+	width: 100%;
+	font-family: inherit;
+}
+
+.thumbnail-preview {
+	margin-top: 10px;
+	width: 100%;
+	height: 0;
+	padding-bottom: 75%; /* 4:3 aspect ratio */
+	overflow: hidden;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	grid-column: span 2;
+	position: relative;
+}
+
+.thumbnail-preview img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.thumbnail-preview span {
+	font-size: 12px;
+	color: #666;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#opacityValue::after {
+	content: "%";
+}
+
+#shadowAngleValue::after {
+	content: "°";
+}
+
+#sizeValue::after,
+#shadowValue::after,
+#shadowDepthValue::after,
+#imageXValue::after,
+#imageYValue::after {
+	content: "px";
+}
+
+#shadowOpacityValue::after {
+	content: "%";
+}
+
+button {
+	padding: 10px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	background-color: #007bff;
+	color: white;
+	margin-top: 10px;
+	font-family: inherit;
+	grid-column: span 2;
+}
+
+button:hover {
+	background-color: #0056b3;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+	.simulation-area {
+		width: 100%;
+		height: auto;
+	}
+
+	.controls {
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+
+	#squircle {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+@media (max-width: 480px) {
+	.simulation-area {
+		width: 100%;
+		height: auto;
+	}
+
+	.controls {
+		grid-template-columns: 1fr 1fr;
+		width: 100%;
+	}
+
+	#squircle {
+		width: 100px;
+		height: 100px;
+	}
+}
