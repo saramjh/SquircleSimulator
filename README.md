@@ -1,7 +1,10 @@
 # Squircle Simulator
+![스크린샷 2025-02-25 21 24 27 중간](https://github.com/user-attachments/assets/3d869856-f344-4ac7-9f88-b0f4e6ab30cf)
 
 Squircle Simulator is a web application that allows users to create and customize squircles using various options.
 Users can adjust properties such as size, color, opacity, shadow, and more, and implement their creations as a squircle.
+
+Link to [Squircle Simulator](saramjh.github.io/SquircleSimulator)
 
 ## Features
 
