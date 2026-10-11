@@ -28,6 +28,36 @@ document.addEventListener("DOMContentLoaded", () => {
 	let isDragging = false
 	let startX, startY
 
+  // Track first committed change per control, not every input pixel.
+  const adjustedControls = new Set()
+  function squircleAnalytics(name, params = {}) {
+    if (typeof window.gtag === "function") window.gtag("event", name, params)
+  }
+  let hasCustomized = false
+  const controls = {
+    size: [sizeInput, sizeValue],
+    color: [colorInput],
+    opacity: [opacityInput, opacityValue],
+    shadow: [shadowInput, shadowValue],
+    shadow_angle: [shadowAngleInput, shadowAngleValue],
+    shadow_depth: [shadowDepthInput, shadowDepthValue],
+    shadow_opacity: [shadowOpacityInput, shadowOpacityValue],
+    image_position: [imageXInput, imageXValue, imageYInput, imageYValue],
+    image_scale: [imageScaleInput, imageScaleValue],
+  }
+  Object.entries(controls).forEach(([control, elements]) => elements.forEach((element) => {
+    element.addEventListener("change", () => {
+      if (!hasCustomized) {
+        hasCustomized = true
+        squircleAnalytics("squircle_customized")
+      }
+      if (!adjustedControls.has(control)) {
+        adjustedControls.add(control)
+        squircleAnalytics("squircle_adjusted", { control_type: control })
+      }
+    })
+  }))
+
 	function updateSquircle() {
 		const size = sizeInput.value
 		const color = colorInput.value
@@ -150,6 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				imageYInput.value = 0
 				applyImageTransformations(imageElement)
 				updateSquircle()
+				squircleAnalytics("squircle_image_loaded")
 			}
 			reader.readAsDataURL(file)
 		}
